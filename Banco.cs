@@ -13,7 +13,7 @@ namespace Desafio_console_
         private string stringConexao = "Data Source=localhost; Initial Catalog=desafio; User ID=desafio; password=Brasil@2451; Language=Portuguese;";
         private SqlConnection cn;
 
-        private void conexao()
+        private void conexao()//vincular a string com cn e iniciar o CN
         {
             cn = new SqlConnection(stringConexao);
         }
@@ -26,11 +26,13 @@ namespace Desafio_console_
                 cn.Open();
 
                 return cn;
+                //tenta fazer algo 
 
             }
             catch (Exception ex)
             {
                 return null;
+                //faz algo se der erro
             }
         }
         public void fecharConexao()
@@ -57,7 +59,7 @@ namespace Desafio_console_
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
 
                 DataTable dt = new DataTable();
-                adapter.Fill(dt);
+                adapter.Fill(dt);//adapter preenche o datable com os dados do command
 
                 return dt;
 
@@ -71,6 +73,5 @@ namespace Desafio_console_
                 fecharConexao();
             }
         }
-
     }
 }

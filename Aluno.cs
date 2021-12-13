@@ -15,18 +15,18 @@ namespace Desafio_console_
         public string Cod_curso { get; set; }
         public string Nome_curso { get; set; }
 
-        public Aluno()
-        {
+        public Aluno(string matricula, string codigo, string nomecurso, string nome, string telefone, string cidade, string rg, string cpf) :
+            base(nome, telefone, cidade, rg, cpf)
 
-        }
-
-        public Aluno(string matricula, string codigo, string nomecurso, string nome, string telefone, string cidade, string rg, string cpf)
-            
         {
             Matricula = matricula;
             Cod_curso = codigo;
             Nome_curso = nomecurso;
 
+        }
+
+        public Aluno()
+        {
         }
         public bool gravarAluno()
         {
@@ -39,7 +39,7 @@ namespace Desafio_console_
             command.Transaction = tran;
             command.CommandType = CommandType.Text;
 
-            command.CommandText = "insert into aluno values (@nome, @telefone, @cidade, @rg, @cpf, @matricula, @cod_curso, @nome_curso );";
+            command.CommandText = "insert into aluno values (@nome, @telefone, @cidade, @rg, @cpf, @matricula, @cod_curso, @nome_curso);";
             command.Parameters.Add("@nome", SqlDbType.VarChar);
             command.Parameters.Add("@telefone", SqlDbType.VarChar);
             command.Parameters.Add("@cidade", SqlDbType.VarChar);

@@ -18,10 +18,10 @@ namespace Desafio_console_
             {
 
                 StreamReader sr = new StreamReader("C:\\temp\\desafio.txt");
-                string linha = sr.ReadLine();
-                while (linha != null)
+                string l1 = sr.ReadLine();
+                while (l1 != null)
                 {
-                    linha = sr.ReadLine();
+                    l1 = sr.ReadLine();
                 }
                 return true;
             }
@@ -31,14 +31,14 @@ namespace Desafio_console_
             }
         }
 
-        public bool Instanciaarquivo()
+        public bool gravarTxt()
         {
             Pessoa pessoa = new Pessoa();
 
             Aluno aluno;
             Aluno alunx;
 
-            
+
             try
             {
 
@@ -51,8 +51,9 @@ namespace Desafio_console_
                     string[] l = l1.Split("-");
                     string letras = l[0];
 
-                    if (letras == "X")
+                if (letras == "X")
                     {
+                        l1 = sr.ReadLine();
                         continue;
 
                     }
@@ -62,6 +63,7 @@ namespace Desafio_console_
                         {
                             pessoa.gravarPessoa();
                         }
+
                         pessoa = new Pessoa();
 
                         pessoa.Nome = l[1];
@@ -75,7 +77,6 @@ namespace Desafio_console_
                             pessoa.gravarPessoa();
 
                         }
-
                     }
                     else if (letras == "Y")
                     {
@@ -89,12 +90,11 @@ namespace Desafio_console_
                         alunx.Matricula = l[1];
                         alunx.Cod_curso = l[2];
                         alunx.Nome_curso = l[3];
-
                         aluno.Matricula = alunx.Matricula;
                         aluno.Cod_curso = alunx.Cod_curso;
                         aluno.Nome_curso = alunx.Nome_curso;
 
-                        alunx.gravarAluno();
+                        aluno.gravarAluno();
                         pessoa = null;
                     }
 
@@ -106,9 +106,9 @@ namespace Desafio_console_
             }
             catch (Exception e)
             {
-                
                 return false;
             }
+
         }
     }
 }

@@ -22,7 +22,7 @@ namespace Desafio
         private void btLer_Click(object sender, EventArgs e)
         {
             Text t = new Text();
-            t.Instanciaarquivo();
+            t.gravarTxt();
             t.leTXT();
             MessageBox.Show("Inseridos " + t.cl + " Pessoas e " + t.cl + " Alunos ");
         }

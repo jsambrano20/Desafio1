@@ -17,11 +17,6 @@ namespace Desafio
         public string RG { get; set; }
         public string CPF { get; set; }
 
-        public Pessoa()
-        {
-
-        }
-
         public Pessoa(string nome, string telefone, string cidade, string rg, string cpf)
         {
             Nome = nome;
@@ -31,9 +26,14 @@ namespace Desafio
             CPF = cpf;
         }
 
+        public Pessoa()
+        {
+        }
+
         public bool gravarPessoa()
         {
             Banco banco = new Banco();
+
             SqlConnection cn = banco.abrirConexao();
             SqlTransaction tran = cn.BeginTransaction();
             SqlCommand command = new SqlCommand();
